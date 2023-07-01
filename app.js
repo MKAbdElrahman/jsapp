@@ -20,8 +20,10 @@ app.set("view engine", "ejs");
 sessionRouter.route("/").get((req, res) => {
     res.render("sessions",{sessions});
 })
-sessionRouter.route("/1").get((req, res) => {
-    res.send("hello single sessions");
+sessionRouter.route("/:id").get((req, res) => {
+    const id = req.params.id;
+
+    res.render("session",{session: sessions[id]});
 })
 app.use("/sessions", sessionRouter);
 app.get("/", (req, res) => {
