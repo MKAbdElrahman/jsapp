@@ -5,7 +5,7 @@ const debug = require("debug")("app");
 const path = require("path")
 
 
-const PORT = 3002;
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 
