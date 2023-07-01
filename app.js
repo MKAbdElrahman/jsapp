@@ -6,7 +6,10 @@ const path = require("path")
 
 const PORT = process.env.PORT || 3000;
 const app = express();
-const sessionRouter = require("./src/routers/sessionsRouter")
+const sessionRouter = require("./src/routers/sessionsRouter");
+const aminRouter = require("./src/routers/adminRouter");
+const adminRouter = require("./src/routers/adminRouter");
+
 
 app.use(morgan("tiny"));
 
@@ -17,6 +20,9 @@ app.set("view engine", "ejs");
 
 
 app.use("/sessions", sessionRouter);
+app.use("/admin", adminRouter);
+
+
 app.get("/", (req, res) => {
     res.render("index", {
         title: "Globomantics",

@@ -8,7 +8,6 @@ sessionRouter.route("/").get((req, res) => {
 });
 sessionRouter.route("/:id").get((req, res) => {
     const id = req.params.id;
-
     res.render("session",{session: sessions[id]});
 });
 
